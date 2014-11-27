@@ -44,7 +44,7 @@ What it sets up
 * [NVM] for managing versions of Node.js
 * [Parity] for development, staging, and production parity
 * [Postgres] for storing relational data
-* [Qt] for headless JavaScript testing via Capybara Webkit
+* [PhantomJS] for headless JavaScript testing via Poltergeist
 * [Rails] gem for writing web applications
 * [Rbenv] for managing versions of Ruby
 * [Redis] for storing key-value data
@@ -67,7 +67,7 @@ What it sets up
 [NVM]: https://github.com/creationix/nvm
 [Parity]: https://github.com/croaky/parity
 [Postgres]: http://www.postgresql.org/
-[Qt]: http://qt-project.org/
+[PhantomJS]: http://http://phantomjs.org/
 [Rails]: http://rubyonrails.org/
 [Rbenv]: https://github.com/sstephenson/rbenv
 [Redis]: http://redis.io/
