@@ -19,7 +19,8 @@ Install
 
 Read, then run the script:
 
-    bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/master/mac) 2>&1 | tee ~/laptop.log
+    bash <(curl -s https://raw.githubusercontent.com/Vermonster/laptop/master/mac) 2>&1 | tee ~/laptop.log
+
 
 Debugging
 ---------
@@ -83,6 +84,20 @@ It should take less than 15 minutes to install (depends on your machine).
 Laptop can be run multiple times on the same machine safely. It will upgrade
 already installed packages and install and activate a new version of ruby (if
 one is available).
+
+How this fork differs from the Thoughtbot Laptop script
+-------------------------------------------------------
+
+* Removed QT
+* Added PhantomJS
+* Use homebrew for rbenv and ruby-build (proactivelly merge in https://github.com/thoughtbot/laptop/pull/324)
+
+### Further considerations
+
+* Either we standardize on using `~/.bin` instead of `~/bin` for local user
+  binaries, or modify the script to use `~/bin`
+* Remove installing the `suspenders` gem
+
 
 Make your own customizations
 ----------------------------
