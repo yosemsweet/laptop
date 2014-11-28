@@ -18,8 +18,10 @@ Install
 -------
 
 Set up vagrant box first
+
     vagrant init thoughtbot/ubuntu-14-04-server
     vagrant up
+    vagrant ssh
 
 Read, then run the script:
 
