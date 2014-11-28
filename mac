@@ -48,7 +48,7 @@ if [[ "$SHELL" != */zsh ]]; then
 fi
 
 zsh_install_if_not_installed() {
-  if ! $(which zsh) then
+  if ! command -v foo >/dev/null 2>&1; then
     sudo apt-get install -y zsh
   fi
 }
