@@ -17,9 +17,13 @@ versions are welcome.
 Install
 -------
 
+Set up vagrant box first
+    vagrant init thoughtbot/ubuntu-14-04-server
+    vagrant up
+
 Read, then run the script:
 
-    bash <(curl -s https://raw.githubusercontent.com/Vermonster/laptop/master/mac) 2>&1 | tee ~/laptop.log
+    bash <(curl -s https://raw.githubusercontent.com/yosemsweet/laptop/master/mac) 2>&1 | tee ~/laptop.log
 
 
 Debugging
