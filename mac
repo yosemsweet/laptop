@@ -27,6 +27,12 @@ append_to_zshrc() {
   fi
 }
 
+zsh_install_if_not_installed() {
+  if ! command -v foo >/dev/null 2>&1; then
+    sudo apt-get install -y zsh
+  fi
+}
+
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 set -e
@@ -46,12 +52,6 @@ if [[ "$SHELL" != */zsh ]]; then
     zsh_install_if_not_installed
     chsh -s $(which zsh)
 fi
-
-zsh_install_if_not_installed() {
-  if ! command -v foo >/dev/null 2>&1; then
-    sudo apt-get install -y zsh
-  fi
-}
 
 brew_install_or_upgrade() {
   if brew_is_installed "$1"; then
