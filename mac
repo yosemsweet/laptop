@@ -8,6 +8,18 @@ fancy_echo() {
   printf "\n%b\n" "$1"
 }
 
+
+
+apt_install_if_not_installed() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    sudo apt-get install -y "$1"
+  fi
+}
+
+fancy_echo "Installing prerequisites..."
+apt_install_if_not_installed 'zsh'
+apt_install_if_not_installed 'ruby'
+
 append_to_zshrc() {
   local text="$1" zshrc
   local skip_new_line="$2"
@@ -27,12 +39,6 @@ append_to_zshrc() {
   fi
 }
 
-apt_install_if_not_installed() {
-  if ! command -v "$1" >/dev/null 2>&1; then
-    sudo apt-get install -y "$1"
-  fi
-}
-
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 set -e
@@ -47,9 +53,9 @@ fi
 
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
 
+
 if [[ "$SHELL" != */zsh ]]; then
   fancy_echo "Changing your shell to zsh ..."
-    apt_install_if_not_installed 'zsh'
     chsh -s $(which zsh)
 fi
 
