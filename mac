@@ -43,8 +43,15 @@ append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
 
 if [[ "$SHELL" != */zsh ]]; then
   fancy_echo "Changing your shell to zsh ..."
+    zsh_install_if_not_installed
     chsh -s $(which zsh)
 fi
+
+zsh_install_if_not_installed() {
+  if ! $(which zsh) then
+    sudo apt-get install -y zsh
+  fi
+}
 
 brew_install_or_upgrade() {
   if brew_is_installed "$1"; then
